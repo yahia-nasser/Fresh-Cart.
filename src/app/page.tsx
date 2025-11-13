@@ -15,6 +15,15 @@ import AddToWishlistBTN from "./_components/AddToWishlistBTN/AddToWishlistBTN";
 
 export default async function Home() {
   const data = await getAllProducts();
+
+  if (!Array.isArray(data)) {
+    console.error("Expected an array of products, but received:", data);
+    return (
+      <section className="px-5 md:px-0 my-10 w-full md:w-[80%] mx-auto ">
+        <p>Could not load products. Please try again later.</p>
+      </section>
+    );
+  }
   return (
     <section className="px-5 md:px-0 my-10 w-full md:w-[80%] mx-auto ">
       <MainSlider />
