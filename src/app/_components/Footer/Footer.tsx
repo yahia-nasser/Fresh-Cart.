@@ -10,11 +10,11 @@ const Footer = () => {
         <p className="text-gray-500 mb-3">
           We will send you a link , open it in youtr phone to download the app
         </p>
-        <div className="flex gap-3 justify-between ">
+        <div className="flex flex-col flex-wrap md:flex-row gap-3 justify-between ">
           <Input
             type="email"
             placeholder="Your Email"
-            className="rounded-2xl w-2/3 border-2 border-gray-400"
+            className="rounded-2xl w-full md:w-2/3 border-2 border-gray-400"
           />
           <button className="rounded-2xl bg-green-500 text-white px-2 py-1 cursor-pointer w-[150px]">
             Share App Link

@@ -32,7 +32,7 @@ export default async function Home() {
         {data.map((product: Products, idx: number) => (
           <div
             key={idx}
-            className="p-3 w-[300px] sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 product transition"
+            className="p-3 w-[200px] md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 product transition"
           >
             <div className="inner">
               <Card className="p-2">

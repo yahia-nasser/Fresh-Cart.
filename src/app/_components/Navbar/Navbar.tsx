@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <div className="bg-main-light p-3">
       <div className="w-full md:w-[80%] mx-auto flex justify-between items-center flex-col md:flex-row gap-2 text-center">
-        <ul className="flex flex-col md:flex-row gap-2 md:gap-5 items-center">
+        <ul className="flex flex-col md:flex-row gap-5 items-center ">
           <li className="w-[140px]">
             <Link href="/">
               <Image
@@ -137,12 +137,14 @@ const Navbar = () => {
         </ul>
 
         <div className="flex flex-col md:flex-row gap-2 text-center items-center">
-          <i className="fab fa-instagram"></i>
-          <i className="fab fa-facebook"></i>
-          <i className="fab fa-tiktok"></i>
-          <i className="fab fa-twitter"></i>
-          <i className="fab fa-linkedin"></i>
-          <i className="fab fa-youtube"></i>
+          <div className="md:flex gap-2 hidden">
+            <i className="fab fa-instagram"></i>
+            <i className="fab fa-facebook"></i>
+            <i className="fab fa-tiktok"></i>
+            <i className="fab fa-twitter"></i>
+            <i className="fab fa-linkedin"></i>
+            <i className="fab fa-youtube"></i>
+          </div>
 
           {status === "unauthenticated" && (
             <>
@@ -191,7 +193,7 @@ const Navbar = () => {
                             </span>
                           </h3>
                         </SheetHeader>
-                        <div className="flex flex-col justify-center items-center gap-7">
+                        <div className="flex flex-col justify-center items-center gap-7 overflow-y-auto">
                           <Link href={"/wishlist"}>My WishList</Link>
 
                           <Link href={"/changePassword"}>Change Password</Link>

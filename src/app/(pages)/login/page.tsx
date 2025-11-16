@@ -60,7 +60,7 @@ const Login = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleLogin)}
-          className="w-1/2 mx-auto mt-10 border-3 border-dotted p-6"
+          className="w-full md:w-1/2 mx-auto mt-10 border-3 border-dotted p-6"
         >
           <FormField
             control={form.control}

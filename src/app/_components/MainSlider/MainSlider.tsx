@@ -12,7 +12,7 @@ import "swiper/css";
 const MainSlider = () => {
   return (
     <div className="mb-10 flex">
-      <div className="w-2/3">
+      <div className="w-full md:w-2/3">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={0}
@@ -27,7 +27,7 @@ const MainSlider = () => {
             <Image
               src={slider1}
               alt="grocery1"
-              className="h-[400px] object-cover"
+              className="h-[200px] md:h-[400px] object-cover"
             />
           </SwiperSlide>
 
@@ -35,7 +35,7 @@ const MainSlider = () => {
             <Image
               src={slider2}
               alt="grocery1"
-              className="h-[400px] object-cover"
+              className="h-[200px] md:h-[400px] object-cover"
             />
           </SwiperSlide>
 
@@ -43,12 +43,12 @@ const MainSlider = () => {
             <Image
               src={slider3}
               alt="grocery1"
-              className="h-[400px] object-cover"
+              className="h-[200px] md:h-[400px] object-cover"
             />
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="w-1/3">
+      <div className="hidden md:block w-1/3">
         <Image
           src={banner1}
           alt="grocery1"

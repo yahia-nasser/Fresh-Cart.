@@ -8,7 +8,7 @@ const PrdouctDeatils = async ({ params }: { params: { id: string } }) => {
   return (
     <section className="w-full md:w-[80%] mx-auto flex flex-wrap md:flex-row md:flex-nowrap justify-center items-center h-screen gap-6 px-5 md:px-0 bg-gray-50">
       {/* image section */}
-      <div className="w-full md:w-1/4 border-2 border-green-600 rounded-3xl overflow-hidden">
+      <div className="w-full md:w-1/4 border-2 border-green-600 rounded-3xl overflow-hidden my-5">
         <Image
           width={500}
           height={500}

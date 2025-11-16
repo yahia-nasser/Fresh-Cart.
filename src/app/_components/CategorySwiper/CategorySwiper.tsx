@@ -18,6 +18,17 @@ const CategorySwiper = ({ categories }: { categories: Categories[] }) => {
           disableOnInteraction: false,
         }}
         loop={true}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+        }}
       >
         {categories.map((category: Categories, idx: number) => (
           <SwiperSlide key={idx}>
