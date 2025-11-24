@@ -27,7 +27,11 @@ export async function ChangePasswordAction({
   const { data } = await axios.put(
     "https://ecommerce.routemisr.com/api/v1/users/changeMyPassword",
     values,
-    { headers: { token: token } }
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   return data;
