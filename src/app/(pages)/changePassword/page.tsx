@@ -16,28 +16,27 @@ const ChangePassword = ({}) => {
     try {
       e.preventDefault();
       setLoading(true);
-      const data = await ChangePasswordAction({ current, newPw, rePw });
-      if (!data) {
-        throw new Error(data.message);
-      }
-      setLoading(false);
       if (newPw !== rePw) {
         toast.error("New Password Doesn't Match ! ", {
           duration: 1500,
           position: "top-center",
         });
         setLoading(false);
-      } else {
-        setLoading(false);
-        toast.success("Password changed successfully!,, So Please Re Login", {
-          duration: 2000,
-          position: "top-center",
-        });
-        setCurrent("");
-        setNewPw("");
-        setRePw("");
-        await signOut({ callbackUrl: "/login" });
       }
+      const data = await ChangePasswordAction({ current, newPw, rePw });
+      if (!data?.success) {
+        throw new Error(data?.message || "Something went wrong");
+      }
+
+      setLoading(false);
+      toast.success("Password changed successfully!,, So Please Re Login", {
+        duration: 2000,
+        position: "top-center",
+      });
+      setCurrent("");
+      setNewPw("");
+      setRePw("");
+      await signOut({ callbackUrl: "/login" });
     } catch (error: unknown) {
       if (error instanceof Error) {
         toast.error("Wrong Current Password", {

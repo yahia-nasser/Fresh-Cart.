@@ -7,6 +7,8 @@ export async function getMyToken() {
   const cookiesInstance = (await cookies()) as ReadonlyRequestCookies;
   const sessionToken = cookiesInstance.get("next-auth.session-token")?.value;
 
+  console.log("Session Token Found:", !!sessionToken);
+
   const secret = process.env.NEXTAUTH_SECRET;
 
   if (!secret) {
@@ -18,10 +20,14 @@ export async function getMyToken() {
     return null;
   }
 
+  console.log("Decoding token...");
+
   const token = (await decode({
     token: sessionToken,
     secret: secret,
   })) as JWT;
+
+  console.log("Decoded Token:", token);
 
   return token?.token;
 }

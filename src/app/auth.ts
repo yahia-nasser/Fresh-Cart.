@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import CredentialsProvider from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
-import { AuthOptions } from "next-auth"; // Import AuthOptions
+import { AuthOptions } from "next-auth";
 
 export const authOptions: AuthOptions = {
   pages: { signIn: "/login" },
