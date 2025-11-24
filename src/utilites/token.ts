@@ -1,33 +1,16 @@
 "use server";
-import { decode, JWT } from "next-auth/jwt";
-import { cookies } from "next/headers";
-import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/auth";
 
 export async function getMyToken() {
-  const cookiesInstance = (await cookies()) as ReadonlyRequestCookies;
-  const sessionToken = cookiesInstance.get("next-auth.session-token")?.value;
+  const session = await getServerSession(authOptions);
 
-  console.log("Session Token Found:", !!sessionToken);
+  const token = session?.user?.token;
 
-  const secret = process.env.NEXTAUTH_SECRET;
-
-  if (!secret) {
-    console.error("NEXTAUTH_SECRET is not defined");
+  if (!token) {
     return null;
   }
 
-  if (!sessionToken) {
-    return null;
-  }
-
-  console.log("Decoding token...");
-
-  const token = (await decode({
-    token: sessionToken,
-    secret: secret,
-  })) as JWT;
-
-  console.log("Decoded Token:", token);
-
-  return token?.token;
+  return token as string;
 }
