@@ -8,16 +8,18 @@ export async function proxy(request: NextRequest) {
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
+    secureCookie: process.env.NODE_ENV === "production",
   });
 
-  const authRouts = [
+  const authRoutes = [
     "/login",
     "/register",
     "/forgotPasswords",
     "/resetPassword",
     "/verifyCode",
   ];
-  const registeredRoute = [
+
+  const protectedRoutes = [
     "/cart",
     "/payment",
     "/allorders",
@@ -26,13 +28,15 @@ export async function proxy(request: NextRequest) {
     "/changeDetails",
   ];
 
-  if (token && authRouts.includes(pathname)) {
+  if (token && authRoutes.includes(pathname)) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  if (!token && registeredRoute.includes(pathname)) {
+  if (!token && protectedRoutes.includes(pathname)) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
+
+  return NextResponse.next();
 }
 
 export const config = {
