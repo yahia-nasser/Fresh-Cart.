@@ -39,18 +39,4 @@ export async function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
-  matcher: [
-    "/cart",
-    "/payment",
-    "/wishlist",
-    "/allorders",
-    "/login",
-    "/register",
-    "/changePassword",
-    "/changeDetails",
-    "/forgotPasswords",
-    "/resetPassword",
-    "/verifyCode",
-  ],
-};
+export default proxy;
