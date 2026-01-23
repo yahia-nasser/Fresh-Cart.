@@ -37,7 +37,7 @@ const Cart = () => {
   if (cartProducts.length == 0) {
     return (
       <div className="mx-auto flex justify-center items-center h-screen">
-        <h2 className="text-7xl text-main">Empty Cart</h2>
+        <h2 className="text-5xl font-bold md:text-7xl text-main">Empty Cart</h2>
       </div>
     );
   }

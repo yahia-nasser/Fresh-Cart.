@@ -182,13 +182,13 @@ const Navbar = () => {
                           <AvatarFallback>CN</AvatarFallback>
                           <h3 className="text-xl font-bold">
                             Name :{" "}
-                            <span className="text-main ms-2">
+                            <span className="text-main text-sm ms-2">
                               {session?.user?.name}
                             </span>
                           </h3>
                           <h3 className="text-xl font-bold border-b-2 pb-3">
                             Email :{" "}
-                            <span className="text-main ms-2">
+                            <span className="text-main text-sm ms-2">
                               {session?.user?.email}
                             </span>
                           </h3>

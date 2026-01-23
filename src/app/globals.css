@@ -82,7 +82,6 @@ a:hover {
 }
 
 .product:hover {
-  box-shadow: var(--shadow);
   transform: scale(1.1);
 }
 .product .btn {
