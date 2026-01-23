@@ -1,7 +1,6 @@
 import { getUserOrders } from "@/apis/getUserOrders";
 import { CartItem, Order } from "@/app/types/userOrders.type";
 import Image from "next/image";
-import React from "react";
 
 const allOrders = async () => {
   const { data } = await getUserOrders();
