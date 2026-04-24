@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -29,7 +28,7 @@ const Register = () => {
       email: "",
       password: "",
       rePassword: "",
-      phone: "",
+      phone: "01033412955",
     },
     resolver: zodResolver(RegisterScheme),
   });
@@ -38,7 +37,7 @@ const Register = () => {
     try {
       const { data } = await axios.post(
         "https://ecommerce.routemisr.com/api/v1/auth/signup",
-        values
+        values,
       );
       toast.success(data.message, { position: "top-center", duration: 3000 });
       router.push("/login");
@@ -124,21 +123,23 @@ const Register = () => {
               </FormItem>
             )}
           />
+          <div className="hidden">
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="font-bold">Phone</FormLabel>
+                  <FormControl>
+                    <Input type="tel" {...field} />
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="font-bold">Phone</FormLabel>
-                <FormControl>
-                  <Input type="tel" {...field} />
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <Button className="w-full mt-5 cursor-pointer">Register</Button>
         </form>
       </Form>
